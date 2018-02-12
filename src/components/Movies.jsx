@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import MovieItem from './MovieItem';
 
 /**
  * [Movies: list all movies]
@@ -14,7 +15,15 @@ class Movies extends Component {
     super(props);
     this.state = {
       name: this.props.name,
+      movies: [],
     };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/v1/movies')
+      .then(response => response.json())
+      .then(data => { this.setState({ movies: data }); })
+      .catch(err => console.error(this.props.name, err.toString()));
   }
 
   /**
@@ -22,6 +31,11 @@ class Movies extends Component {
    * @return {[html]} [output of the class]
    */
   render() {
+    const movies = this.state.movies.map((item) => {
+      return (
+        <MovieItem movie={item} />
+      );
+    });
     return (
       <div className="App">
         <div className="App-header">
@@ -33,6 +47,9 @@ class Movies extends Component {
         <button onClick={() => { this.setState({ name: 'tony' }); }}>
            change1
         </button>
+        <div>
+          {movies}
+        </div>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Movies from 'components/Movies.jsx'
+import Movies from './components/Movies';
 
 /**
  * [App says hi]
