@@ -19,6 +19,10 @@ class Movies extends Component {
     };
   }
 
+  /**
+ * [componentDidMount fetches movies list from the api and assign it to state ]
+ * @return {[object]} [states]
+ */
   componentDidMount() {
     fetch('http://localhost:3000/v1/movies')
       .then(response => response.json())

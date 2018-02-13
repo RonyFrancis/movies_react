@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 
 /**
- * [App says hi]
+ * [Main or Home page]
  */
 const Main = () => <div>main</div>;
 
