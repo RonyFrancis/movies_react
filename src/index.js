@@ -6,36 +6,28 @@ import {
 import ReactDOM from 'react-dom';
 import Main from './Main';
 import './index.css';
-
-// import App from './App';
 import Movies from './components/Movies';
+import Movie from './components/Movie';
 import registerServiceWorker from './registerServiceWorker';
 
-// ReactDOM.render(
-//   <Movies name='rony'  />,
-//  document.getElementById('root'));
-
-// class App extends Component {
-//   render() {
-//     return (
-//
-//      );
-//    }
-//  }
-
+/**
+ * [App: router for the app]
+ */
 const App = () => {
   return (
     <Router>
       <div>
         <Route exact path="/" component={Main} />
         <Route path="/movies" render={() => <Movies name="rony" />} />
+        <Route path="/movie" component={Movie} />
       </div>
     </Router>
   );
 };
 
-// ReactDOM.render(<App/>, document.getElementById('root'));
-
+/**
+ * render output html to div 'root' in index.html file
+ */
 ReactDOM.render(
   <App />,
   document.getElementById('root'),

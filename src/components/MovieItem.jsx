@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 /**
  * [MovieItem single movieitem render]
@@ -8,7 +9,7 @@ import PropTypes from 'prop-types';
 const MovieItem = props => (
   <div className="Movieitem">
     <h1>
-      {props.movie.id}
+      <Link to="movie">{props.movie.id}</Link>
     </h1>
   </div>
 );
